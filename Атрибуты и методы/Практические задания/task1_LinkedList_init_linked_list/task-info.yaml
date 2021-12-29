@@ -8,8 +8,8 @@ files:
 - name: main.py
   visible: true
   placeholders:
-  - offset: 429
-    length: 77
+  - offset: 527
+    length: 69
     placeholder_text: '...  # TODO обернуть все значения в класс Node и поместить
       их в python список'
     initial_state:
@@ -17,31 +17,31 @@ files:
       offset: 429
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: '[Node(value) for value in data]'
-  - offset: 516
-    length: 46
+  - offset: 606
+    length: 38
     placeholder_text: '# TODO составьте алгоритм, который свяжет узлы'
     initial_state:
       length: 46
       offset: 516
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       for i in range(len(self.list_nodes) - 1):
                   current_node = self.list_nodes[i]
                   next_node = self.list_nodes[i + 1]
                   self.linked_nodes(current_node, next_node)
-  - offset: 568
-    length: 36
+  - offset: 650
+    length: 28
     placeholder_text: '# TODO каким должен быть этот метод?'
     initial_state:
       length: 36
       offset: 568
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: '@staticmethod'
   text: |
     from typing import Iterable, Optional
@@ -118,5 +118,8 @@ files:
             self.is_valid(next_)
             self.next = next_
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Wed, 29 Dec 2021 17:54:11 UTC
 record: -1
