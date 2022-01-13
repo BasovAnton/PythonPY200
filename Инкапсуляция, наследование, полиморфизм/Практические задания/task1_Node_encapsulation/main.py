@@ -12,22 +12,23 @@ class Node:
         """
         self.value = value
 
-        self.next = None  # TODO заменить на private
+        self.__next = None  # TODO заменить на private
         self.set_next(next_)
 
     def __repr__(self) -> str:
-        return f"Node({self.value}, {None})" if self.next is None else f"Node({self.value}, Node({self.next}))"  # TODO заменить на private
+        return f"Node({self.value}, {None})" if self.__next is None else f"Node({self.value}, Node({self.__next}))"
 
     def __str__(self) -> str:
         return str(self.value)
 
-    def is_valid(self, node: Any) -> None:
+    @staticmethod
+    def is_valid(node: Any) -> None:
         if not isinstance(node, (type(None), Node)):
             raise TypeError
 
     def set_next(self, next_: Optional["Node"] = None) -> None:
         self.is_valid(next_)
-        self.next = next_  # TODO заменить на private
+        self.__next = next_  # TODO заменить на private
 
 
 if __name__ == "__main__":

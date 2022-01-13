@@ -32,4 +32,34 @@ class Node:
         self.is_valid(next_)
         self._next = next_
 
-# TODO реализовать класс DoubleLinkedNode
+
+class DLNode(Node):
+    def __init__(self, value, next_, prev_):
+        super().__init__(value, next_)
+        self._prev = prev_
+
+    @property
+    def prev(self):
+        return self._prev
+
+    @prev.setter
+    def prev(self, prev_: Optional["DLNode"]):
+        self.is_valid(prev_)
+        self._prev = prev_
+
+    def __repr__(self) -> str:
+        next_ = None if self.next is None else f"DLNode({self.next.value}, DLNode({self.next.next}))"
+        prev_ = None if self.next is None else f"DLNode({self.prev.value}, DLNode({self.prev.prev}))"
+        return f"DLNode({self.value}, {next_}, {prev_})"
+
+dln_1 = DLNode(6)
+dln_2 = DLNode(8)
+dln_3 = DLNode(10)
+
+dln_1.next = dln_2
+dln_2.next = dln_3
+
+dln_3.next = dln_2
+dln_2.next = dln_1
+
+print(repr(dln_2))
