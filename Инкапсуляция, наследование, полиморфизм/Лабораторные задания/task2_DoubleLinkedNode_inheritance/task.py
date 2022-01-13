@@ -34,7 +34,7 @@ class Node:
 
 
 class DLNode(Node):
-    def __init__(self, value, next_, prev_):
+    def __init__(self, value, next_=None, prev_=None):
         super().__init__(value, next_)
         self._prev = prev_
 
