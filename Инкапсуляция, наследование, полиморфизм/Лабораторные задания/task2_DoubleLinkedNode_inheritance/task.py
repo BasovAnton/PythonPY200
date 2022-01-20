@@ -48,14 +48,14 @@ class DLNode(Node):
         self._prev = prev_
 
     def __repr__(self) -> str:
-        next_ = None if self.next is None else f"DLNode({self.next})"
-        prev_ = None if self.prev is None else f"DLNode({self.prev})"
-        return f"DLNode({self.value}, {next_}, {prev_})"
+        next_ = None if self.next is None else f"DLNode({repr(self.next.value)})"
+        prev_ = None if self.prev is None else f"DLNode({repr(self.prev.value)})"
+        return f"DLNode({repr(self.value)}, {next_}, {prev_})"
 
 
-dln_1 = DLNode(6)
-dln_2 = DLNode(8)
-dln_3 = DLNode(10)
+dln_1 = DLNode("1")
+dln_2 = DLNode("2")
+dln_3 = DLNode("3")
 
 dln_1.next = dln_2
 dln_2.next = dln_3
@@ -63,4 +63,4 @@ dln_2.next = dln_3
 dln_3.prev = dln_2
 dln_2.prev = dln_1
 
-print(repr(dln_3))
+print(repr(dln_2))
