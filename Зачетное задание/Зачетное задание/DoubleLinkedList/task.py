@@ -1,9 +1,22 @@
 from typing import Any, Iterable, Optional
+from collections.abc import MutableSequence
 
 from node import Node, DoubleLinkedNode
 
 
-class LinkedList:
+class LinkedList(MutableSequence):
+
+    CLASS_NODE = Node
+
+    def insert(self, index: int, value) -> None:
+        pass
+
+    def __delitem__(self, i: int) -> None:
+        pass
+
+    def __len__(self) -> int:
+        return self.len
+
     def __init__(self, data: Iterable = None):
         """Конструктор связного списка"""
         self.len = 0
@@ -16,7 +29,7 @@ class LinkedList:
 
     def append(self, value: Any):
         """ Добавление элемента в конец связного списка. """
-        append_node = Node(value)
+        append_node = self.CLASS_NODE(value)
 
         if self.head is None:
             self.head = self.tail = append_node
@@ -71,23 +84,12 @@ class LinkedList:
 
 
 class DoubleLinkedList(LinkedList):
+    CLASS_NODE = DoubleLinkedNode
 
     @staticmethod
     def linked_nodes(left_node: DoubleLinkedNode, right_node: Optional[DoubleLinkedNode] = None) -> None:
         left_node.next = right_node
         right_node.prev = left_node
-
-    def append(self, value: Any):
-        """ Добавление элемента в конец связного списка. """
-        append_node = DoubleLinkedNode(value)
-
-        if self.head is None:
-            self.head = self.tail = append_node
-        else:
-            self.linked_nodes(self.tail, append_node)
-            self.tail = append_node
-
-        self.len += 1
 
 
 if __name__ == "__main__":
