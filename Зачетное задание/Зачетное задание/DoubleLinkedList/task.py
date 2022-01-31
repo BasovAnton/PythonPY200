@@ -5,11 +5,25 @@ from node import Node, DoubleLinkedNode
 
 
 class LinkedList(MutableSequence):
-
     CLASS_NODE = Node
 
     def insert(self, index: int, value) -> None:
-        pass
+        if not isinstance(index, int):
+            raise TypeError()
+        insert_node = Node(value)
+        if index == 0:
+            insert_node.next = self.head
+            self.head = insert_node
+            self.len += 1
+
+        elif index >= self.len - 1:
+            self.append(value)
+        else:
+            prev_node = self.step_by_step_on_nodes(index - 1)
+            next_node = prev_node.next
+            self.linked_nodes(prev_node, insert_node)
+            self.linked_nodes(insert_node, next_node)
+            self.len += 1
 
     def __delitem__(self, i: int) -> None:
         pass
@@ -93,4 +107,9 @@ class DoubleLinkedList(LinkedList):
 
 
 if __name__ == "__main__":
-    ...
+    list_ = [1, 2, 3]
+    linked_list = LinkedList(list_)
+    print(linked_list)
+
+    linked_list.insert(0, 0)
+    print(linked_list)
