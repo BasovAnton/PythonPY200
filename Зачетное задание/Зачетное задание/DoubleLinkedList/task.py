@@ -122,10 +122,25 @@ class DoubleLinkedList(LinkedList):
         right_node.prev = left_node
 
 
+class NewLinkedList(LinkedList):
+
+    def remove_(self, x):
+        s = 0
+        for i in range(self._len):
+            s += 1
+            if self.__getitem__(i) == x:
+                self.__delitem__(i)
+                break
+            if self._len == s:
+                raise TypeError
+
+
 if __name__ == "__main__":
-    list_ = [1, 2, 3]
+    list_ = [5, 2, 3, 7, 9]
     linked_list = LinkedList(list_)
     print(linked_list)
     print(linked_list.__repr__())
-    linked_list.__delitem__(0)
-    print(linked_list)
+
+    linked_list_2 = NewLinkedList(list_)
+    linked_list_2.remove_(5)
+    print(linked_list_2)
