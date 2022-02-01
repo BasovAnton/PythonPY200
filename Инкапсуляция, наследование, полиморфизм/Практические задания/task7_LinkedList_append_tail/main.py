@@ -21,11 +21,11 @@ class LinkedList:
         if self.head is None:
             self.head = self.tail = append_node
         else:
-            #last_node = self.tail
+            #last_node = self._tail
 
             self.linked_nodes(self.tail, append_node)
             self.tail = append_node
-            #self.tail = self.tail.next
+            #self._tail = self._tail.next
 
         self.len += 1
 

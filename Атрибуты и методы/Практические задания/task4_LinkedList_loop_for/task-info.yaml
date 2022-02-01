@@ -24,7 +24,7 @@ files:
     initialized_from_dependency: false
     selected: true
     status: Solved
-    encrypted_possible_answer: self.len = 0
+    encrypted_possible_answer: self._len = 0
   - offset: 575
     length: 31
     placeholder_text: '# TODO устанавливаем длину последовательности'
@@ -34,7 +34,7 @@ files:
     initialized_from_dependency: false
     selected: true
     status: Solved
-    encrypted_possible_answer: self.len = len(self.list_nodes)
+    encrypted_possible_answer: self._len = _len(self.list_nodes)
   - offset: 1435
     length: 72
     placeholder_text: '# TODO проверка корректности границ индекса'

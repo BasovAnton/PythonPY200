@@ -18,7 +18,7 @@ files:
     initialized_from_dependency: false
     selected: false
     status: Solved
-    encrypted_possible_answer: 'self.head: Optional[Node] = None'
+    encrypted_possible_answer: 'self._head: Optional[Node] = None'
   - offset: 516
     length: 30
     placeholder_text: '...  # TODO инициализировать указатель на первый элемент'
@@ -28,7 +28,7 @@ files:
     initialized_from_dependency: false
     selected: true
     status: Solved
-    encrypted_possible_answer: self.head = self.list_nodes[0]
+    encrypted_possible_answer: self._head = self.list_nodes[0]
   - offset: 1304
     length: 60
     placeholder_text: '# TODO проверка правильности типа индекса'
@@ -50,7 +50,7 @@ files:
     initialized_from_dependency: false
     selected: false
     status: Solved
-    encrypted_possible_answer: self.head
+    encrypted_possible_answer: self._head
   - offset: 1423
     length: 49
     placeholder_text: '...  # TODO с помощью цикла for добраться до нужного узла'

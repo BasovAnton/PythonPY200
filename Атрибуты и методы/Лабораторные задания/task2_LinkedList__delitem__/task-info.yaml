@@ -19,7 +19,7 @@ files:
       offset: 1992
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Failed
     encrypted_possible_answer: |-
       if not isinstance(index, int):
                   raise TypeError()
@@ -34,7 +34,7 @@ files:
       offset: 2030
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Failed
     encrypted_possible_answer: |-
       if index == 0:
                   self.head = self.head.next
@@ -183,8 +183,15 @@ files:
             self.is_valid(next_)
             self.next = next_
   learner_created: false
-status: Solved
+status: Failed
 feedback:
-  message: Congratulations!
-  time: Wed, 29 Dec 2021 17:55:52 UTC
+  message: Incorrect
+  time: Tue, 01 Feb 2022 12:48:37 UTC
+  expected: |
+    [1, 2, 3]
+    [1, 3]
+    [1]
+    []
+  actual: |
+    [1, 2, 3]
 record: -1

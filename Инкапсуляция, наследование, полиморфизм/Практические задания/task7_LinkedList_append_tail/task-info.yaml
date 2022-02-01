@@ -11,47 +11,47 @@ files:
   placeholders:
   - offset: 245
     length: 32
-    placeholder_text: '...  # TODO добавить атрибут tail'
+    placeholder_text: '...  # TODO добавить атрибут _tail'
     initial_state:
-      length: 33
+      length: 32
       offset: 245
     initialized_from_dependency: false
     selected: true
     status: Solved
-    encrypted_possible_answer: self.tail = self.head
+    encrypted_possible_answer: self._tail = self._head
   - offset: 547
     length: 35
-    placeholder_text: 'self.head = append_node  # TODO добавить использование self.tail'
+    placeholder_text: 'self._head = append_node  # TODO добавить использование self._tail'
     initial_state:
-      length: 64
-      offset: 548
+      length: 35
+      offset: 547
     initialized_from_dependency: false
     selected: true
     status: Solved
-    encrypted_possible_answer: self.head = self.tail = append_node
+    encrypted_possible_answer: self._head = self._tail = append_node
   - offset: 596
-    length: 166
+    length: 169
     placeholder_text: |-
       last_index = self.len - 1  # TODO Переделать через атрибут tail
                   last_node = self.step_by_step_on_nodes(last_index)
 
                   self.linked_nodes(last_node, append_node)
     initial_state:
-      length: 181
-      offset: 639
+      length: 166
+      offset: 596
     initialized_from_dependency: false
     selected: true
     status: Solved
     encrypted_possible_answer: |-
       self.linked_nodes(self.tail, append_node)
                   self.tail = append_node
-  - offset: 1526
+  - offset: 1529
     length: 27
     placeholder_text: 'left_node.set_next(right_node)  # TODO next теперь свойство
       имеет setter, используйте это'
     initial_state:
-      length: 89
-      offset: 1584
+      length: 27
+      offset: 1526
     initialized_from_dependency: false
     selected: true
     status: Solved

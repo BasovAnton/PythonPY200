@@ -7,61 +7,80 @@ from node import Node, DoubleLinkedNode
 class LinkedList(MutableSequence):
     CLASS_NODE = Node
 
+    def __init__(self, data: Iterable = None):
+        """Конструктор связного списка"""
+        self._len = 0
+        self._head: Optional[Node] = None
+        self._tail = self._head
+
+        if data is not None:
+            for value in data:
+                self.append(value)
+
     def insert(self, index: int, value) -> None:
         if not isinstance(index, int):
             raise TypeError()
         insert_node = Node(value)
         if index == 0:
-            insert_node.next = self.head
-            self.head = insert_node
-            self.len += 1
+            insert_node.next = self._head
+            self._head = insert_node
+            self._len += 1
 
-        elif index >= self.len - 1:
+        elif index >= self._len - 1:
             self.append(value)
         else:
             prev_node = self.step_by_step_on_nodes(index - 1)
             next_node = prev_node.next
             self.linked_nodes(prev_node, insert_node)
             self.linked_nodes(insert_node, next_node)
-            self.len += 1
+            self._len += 1
 
-    def __delitem__(self, i: int) -> None:
-        pass
+    def __delitem__(self, index: int) -> None:
+
+        """Удаление узла по индексу"""
+        if not isinstance(index, int):
+            raise TypeError()
+
+        if not 0 <= index < self._len:
+            raise IndexError()
+
+        if index == 0:
+            self._head = self._head.next
+        elif index == self._len - 1:
+            tail = self.step_by_step_on_nodes(index-1)
+            tail.next = None
+        else:
+            prev_node = self.step_by_step_on_nodes(index-1)
+            del_node = prev_node.next
+            next_node = del_node.next
+            self.linked_nodes(prev_node, next_node)
+
+        self._len -= 1
 
     def __len__(self) -> int:
-        return self.len
-
-    def __init__(self, data: Iterable = None):
-        """Конструктор связного списка"""
-        self.len = 0
-        self.head: Optional[Node] = None
-        self.tail = self.head
-
-        if data is not None:
-            for value in data:
-                self.append(value)
+        return self._len
 
     def append(self, value: Any):
         """ Добавление элемента в конец связного списка. """
         append_node = self.CLASS_NODE(value)
 
-        if self.head is None:
-            self.head = self.tail = append_node
+        if self._head is None:
+            self._head = self._tail = append_node
         else:
-            self.linked_nodes(self.tail, append_node)
-            self.tail = append_node
+            self.linked_nodes(self._tail, append_node)
+            self._tail = append_node
 
-        self.len += 1
+        self._len += 1
 
     def step_by_step_on_nodes(self, index: int) -> Node:
         """ Функция выполняет перемещение по узлам до указанного индекса. И возвращает узел. """
         if not isinstance(index, int):
             raise TypeError()
 
-        if not 0 <= index < self.len:
+        if not 0 <= index < self._len:
             raise IndexError()
 
-        current_node = self.head
+        current_node = self._head
         for _ in range(index):
             current_node = current_node.next
 
@@ -71,9 +90,6 @@ class LinkedList(MutableSequence):
     def linked_nodes(left_node: Node, right_node: Optional[Node] = None) -> None:
         """
         Функция, которая связывает между собой два узла.
-
-        :param left_node: Левый или предыдущий узел
-        :param right_node: Правый или следующий узел
         """
         left_node.next = right_node
 
@@ -110,6 +126,6 @@ if __name__ == "__main__":
     list_ = [1, 2, 3]
     linked_list = LinkedList(list_)
     print(linked_list)
-
-    linked_list.insert(0, 0)
+    print(linked_list.__repr__())
+    linked_list.__delitem__(0)
     print(linked_list)
