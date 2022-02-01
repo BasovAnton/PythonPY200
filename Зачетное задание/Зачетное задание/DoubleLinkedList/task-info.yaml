@@ -36,8 +36,11 @@ files:
   text: |
     ...
   learner_created: false
+- name: test_linked_list.py
+  visible: true
+  learner_created: true
 status: Solved
 feedback:
   message: Congratulations!
-  time: Tue, 01 Feb 2022 16:22:17 UTC
+  time: Tue, 01 Feb 2022 17:43:55 UTC
 record: -1

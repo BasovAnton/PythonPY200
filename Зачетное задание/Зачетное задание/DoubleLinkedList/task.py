@@ -49,6 +49,7 @@ class LinkedList(MutableSequence):
         elif index == self._len - 1:
             tail = self.step_by_step_on_nodes(index-1)
             tail.next = None
+            self._tail = tail
         else:
             prev_node = self.step_by_step_on_nodes(index-1)
             del_node = prev_node.next
@@ -125,14 +126,22 @@ class DoubleLinkedList(LinkedList):
 class NewLinkedList(LinkedList):
 
     def remove_(self, x):
-        s = 0
-        for i in range(self._len):
-            s += 1
-            if self.__getitem__(i) == x:
-                self.__delitem__(i)
+        # s = 0
+        # for i in range(self._len):
+        #     s += 1
+        #     if self[i] == x:
+        #         self.__delitem__(i)  # del self[i]
+        #         break
+        #     if self._len == s:
+        #         raise TypeError
+
+        for i, value in enumerate(self):
+            if value == x:
+                self.__delitem__(i)  # del self[i]
                 break
-            if self._len == s:
-                raise TypeError
+
+        if i == len(self) - 1:
+            raise TypeError
 
 
 if __name__ == "__main__":
