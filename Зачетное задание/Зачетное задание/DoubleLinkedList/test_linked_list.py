@@ -12,4 +12,5 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(2, len(ll))
         self.assertEqual(1, ll._head.value)
         self.assertEqual(2, ll._tail.value)
+        """тест"""
     
